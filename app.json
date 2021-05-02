@@ -1,0 +1,22 @@
+{
+  "name": "Address Book Backend",
+  "description": "Code for Address Book backend",
+  "keywords": [],
+  "website": "https://address-staging.herokuapp.com/api/v1/docs",
+  "repository": "https://github.com/meetKazuki/address-book",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "scripts": {
+    "postdeploy": "npm run db:migrate"
+  },
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "stack": "heroku-20"
+}
