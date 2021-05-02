@@ -1,0 +1,12 @@
+{
+  "exclude": [
+    ".github/**/*",
+    "coverage/**/*",
+    "docs/**/*",
+    "test/**/*"
+  ],
+  "instrument": true,
+  "reporter": ["html", "lcov", "text"],
+  "require": ["esm"],
+  "sourceMap": false
+}
