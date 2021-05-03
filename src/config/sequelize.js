@@ -17,6 +17,11 @@ module.exports = {
     url: process.env.DATABASE_URL,
     dialect: process.env.DATABASE_DIALECT,
     logging: !process.env.DATABASE_DEBUG,
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
   },
   production: {
     url: process.env.DATABASE_URL,
