@@ -4,6 +4,8 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import swaggerUI from 'swagger-ui-express';
+import errorHandler from './middleware/errorHandler';
+import router from './routes';
 import swaggerDoc from '../docs/swagger-doc.json';
 
 const app = express();
@@ -15,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 if (!['test'].includes(process.env.NODE_ENV)) app.use(morgan('combined'));
 
+app.use('/api/v1', router);
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
 app.get('/api/v1', (request, response) => {
@@ -30,5 +33,7 @@ app.get('*', (request, response) => {
     error: 'resource not found',
   });
 });
+
+app.use(errorHandler);
 
 export default app;
