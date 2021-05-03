@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
-if (!['test'].includes(process.env.NODE_ENV)) app.use(morgan('combined'));
+if (!['test'].includes(process.env.NODE_ENV)) app.use(morgan('dev'));
 
 app.use('/api/v1', router);
 app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));

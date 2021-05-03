@@ -86,7 +86,7 @@ The API response, to the best of my ability, is structure after JSEnd specificat
 
 ## Project Status
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/354a513337c5a0a5d299?action=collection%2Fimport#?env%5BAddress%20Development%20Environment%5D=W3sia2V5IjoiQVBJX1VSTCIsInZhbHVlIjoibG9jYWxob3N0OjcwMDkvYXBpL3YxIiwiZW5hYmxlZCI6dHJ1ZX1d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/354a513337c5a0a5d299?action=collection%2Fimport#?env%5BAddress%20Development%20Environment%5D=W3sia2V5IjoiQVBJX1VSTCIsInZhbHVlIjoibG9jYWxob3N0OjcwMDkvYXBpL3YxIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJBVVRIT1JJWkFUSU9OX1RPS0VOIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfV0=)
 [![Deploy to Heroku Staging](https://github.com/meetKazuki/address-book/actions/workflows/heroku-deployment-staging.yml/badge.svg)](https://github.com/meetKazuki/address-book/actions/workflows/heroku-deployment-staging.yml)
 
 ## Project Payload

@@ -12,8 +12,10 @@
     "sourceType": "module"
   },
   "rules": {
+    "camelcase": "off",
     "global-require": "off",
     "import/no-dynamic-require": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "object-curly-newline": "off"
   }
 }

@@ -9,6 +9,7 @@ admin.initializeApp({
 
 export default {
   saveContact: async (location, data) => {
-    await admin.database().ref(`/${location}`).set(data);
+    const documentRef = admin.firestore().collection(location).doc();
+    await documentRef.set(data);
   },
 };
