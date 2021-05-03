@@ -1,7 +1,7 @@
 import { Model } from 'sequelize';
 import { hashPassword, verifyPassword } from '../helpers/auth';
 
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {}
   }
@@ -44,14 +44,29 @@ export default (sequelize, DataTypes) => {
   });
 
   /**
-   * @description serializer for user object
-   * @function toJSON
+   * @description returns user object based on specified column
+   * @method getExisting
+   *
+   * @param {String} queryString
+   * @param {String} column
    *
    * @returns {Object}
    */
-  user.prototype.toJSON = function toJSON() {
-    const { password, ...safeData } = this.get();
-    return safeData;
+  user.getExisting = async (queryString, column = 'email') => {
+    const data = await user.findOne({ where: { [column]: queryString } });
+    return data;
+  };
+
+  /**
+   * @description compares password
+   * @function validatePassword
+   *
+   * @param {String} password
+   *
+   * @returns {Boolean}
+   */
+  user.prototype.validatePassword = function validatePassword(password) {
+    return verifyPassword(this.password, password);
   };
 
   /**
@@ -60,20 +75,20 @@ export default (sequelize, DataTypes) => {
    *
    * @returns {String}
    */
-  user.generatePasswordHash = async function generatePasswordHash() {
+  user.prototype.generatePasswordHash = async function generatePasswordHash() {
     const password = await hashPassword(this.password);
     return password;
   };
 
   /**
-   * @description compares password
-   * @function validatePassword
+   * @description serializer for user object
+   * @function toJSON
    *
-   * @param {String} password
-   * @returns {Boolean}
+   * @returns {Object}
    */
-  user.validatePassword = async function validatePassword(password) {
-    return verifyPassword(this.password, password);
+  user.prototype.toJSON = function toJSON() {
+    const { password, ...safeData } = this.get();
+    return safeData;
   };
 
   return user;
