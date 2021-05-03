@@ -13,6 +13,7 @@
     "db:reset": "npm run db:migrate:undo && npm run db:migrate",
     "db:seed": "sequelize db:seed:all",
     "dev": "nodemon -r esm src/server.js",
+    "heroku-postbuild": "npm run db:migrate",
     "start": "node -r esm src/server.js",
     "sync:env": "sync-dotenv",
     "test": "NODE_ENV=test mocha",
