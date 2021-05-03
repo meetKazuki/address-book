@@ -8,7 +8,7 @@ export default (error, request, response, next) => {
   let errorMessages = {};
 
   if (response.headersSent) return next(error);
-  if (!isProduction && process.env.NODE !== 'test') {
+  if (!isProduction) {
     // logger.info(error.stack);
     errorMessages = error;
   }

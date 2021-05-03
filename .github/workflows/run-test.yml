@@ -1,0 +1,30 @@
+name: Run Tests
+
+on: pull_request
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: ENV_SILENT=true npm test
+        env:
+          CI: true
+          NODE_ENV: test
+          PORT: 6379
+          JWT_KEY: reallyreallyscallopreally
+          SALT: 12
+          DATABASE_DIALECT: postgres
+          DATABASE_DEBUG: false

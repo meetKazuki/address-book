@@ -14,17 +14,109 @@
   },
   "servers": [
     {
-      "url": "/"
+      "url": "http://localhost:{port}/api/v1",
+      "description": "Local development environment",
+      "variables": {
+        "port": {
+          "default": "7009",
+          "enum": [
+            "6000",
+            "7009"
+          ]
+        }
+      }
     }
   ],
   "paths": {
     "/": {
       "get": {
         "summary": "returns the index route",
-        "description": "This endpoint display a sucess response with a message welcoming the user to the API.\n",
         "responses": {
           "200": {
             "description": "search results matching criteria"
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "summary": "endpoint for registering a new user.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthPayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "success. user was successfully registered."
+          },
+          "400": {
+            "description": "validation error. one or two required parameters are missing or incorrect."
+          },
+          "409": {
+            "description": "conflict. email already exist in the system."
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "endpoint for logging in a user.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthPayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "success. user was successfully logged-in."
+          },
+          "400": {
+            "description": "validation error. one or two required parameters are missing."
+          },
+          "401": {
+            "description": "invalid credentials. email or password is incorrect."
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "summary": "endpoint a user can use to retrieve contacts created.",
+        "responses": {
+          "200": {
+            "description": "success. contacts list retrieved successfully."
+          }
+        }
+      },
+      "post": {
+        "summary": "endpoint a registered user can use to create a new contact.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contact"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "success. contact was successfully created."
+          },
+          "400": {
+            "description": "validation error. one or two required parameters are missing or incorrect."
           }
         }
       }
@@ -32,22 +124,40 @@
   },
   "components": {
     "schemas": {
-      "User": {
-        "required": [
-          "email",
-          "password"
-        ],
+      "Contact": {
         "type": "object",
         "properties": {
-          "id": {
+          "user_id": {
             "type": "string",
             "format": "uuid",
-            "example": "d290f1ee-6c54-4b01-90e6-d701748f0852"
+            "example": "d290f1ee-6c54-4b01-90e6-d701748f0854"
           },
+          "first_name": {
+            "type": "string",
+            "example": "Itachi"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "Uchiha"
+          },
+          "phone": {
+            "type": "string",
+            "format": "phone",
+            "example": "2348000000001"
+          },
+          "address": {
+            "type": "string",
+            "example": "12B McNeil Street, Sabo-Yaba, Lagos"
+          }
+        }
+      },
+      "AuthPayload": {
+        "type": "object",
+        "properties": {
           "email": {
             "type": "string",
             "format": "email",
-            "example": "user@email.com"
+            "example": "itachi@uchiha.anbu"
           },
           "password": {
             "type": "string",

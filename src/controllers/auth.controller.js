@@ -7,7 +7,7 @@ const { user } = model;
 export default {
   /**
    * @description controller for creating a new user
-   * @function createUser
+   * @method createUser
    *
    * @param {Object} request
    * @param {Object} response
@@ -33,7 +33,7 @@ export default {
 
   /**
    * @description controller for signing in user
-   * @function signinUser
+   * @method signinUser
    *
    * @param {Object} request
    * @param {Object} response

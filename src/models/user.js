@@ -87,7 +87,7 @@ module.exports = (sequelize, DataTypes) => {
    * @returns {Object}
    */
   user.prototype.toJSON = function toJSON() {
-    const { password, ...safeData } = this.get();
+    const { password, createdAt, updatedAt, ...safeData } = this.get();
     return safeData;
   };
 
