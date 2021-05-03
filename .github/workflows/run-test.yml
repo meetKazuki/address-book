@@ -26,3 +26,5 @@ jobs:
           PORT: 6379
           JWT_KEY: reallyreallyscallopreally
           SALT: 12
+          DATABASE_DIALECT: postgres
+          DATABASE_DEBUG: false
