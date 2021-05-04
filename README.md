@@ -86,7 +86,7 @@ The API response, to the best of my ability, is structure after JSEnd specificat
 
 ## Project Status
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/354a513337c5a0a5d299?action=collection%2Fimport#?env%5BAddress%20Development%20Environment%5D=W3sia2V5IjoiQVBJX1VSTCIsInZhbHVlIjoibG9jYWxob3N0OjcwMDkvYXBpL3YxIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJBVVRIT1JJWkFUSU9OX1RPS0VOIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfV0=)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/354a513337c5a0a5d299?action=collection%2Fimport#?env%5BAddress%20Development%20Environment%5D=W3sia2V5IjoiQVBJX1VSTCIsInZhbHVlIjoibG9jYWxob3N0OjcwMDkvYXBpL3YxIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJBVVRIT1JJWkFUSU9OX1RPS0VOIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IlNUQUdJTkdfVVJMIiwidmFsdWUiOiJodHRwczovL2FkZHJlc3Mtc3RhZ2luZy5oZXJva3VhcHAuY29tL2FwaS92MSIsImVuYWJsZWQiOnRydWV9XQ==)
 [![Deploy to Heroku Staging](https://github.com/meetKazuki/address-book/actions/workflows/heroku-deployment-staging.yml/badge.svg)](https://github.com/meetKazuki/address-book/actions/workflows/heroku-deployment-staging.yml)
 
 ## Project Payload
@@ -95,6 +95,7 @@ The API response, to the best of my ability, is structure after JSEnd specificat
 - [Project Entities Model](https://dbdiagram.io/d/6075157eb6aeb3052d8fcd46)
 - [API on Staging Environment](https://address-staging.herokuapp.com/api/v1)
 - [API Documentation](https://address-staging.herokuapp.com/api/v1/docs)
+- [Postman Collection](https://documenter.getpostman.com/view/7505181/TzRNEV3x)
 
 ## Getting Started
 
