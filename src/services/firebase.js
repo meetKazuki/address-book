@@ -8,8 +8,15 @@ admin.initializeApp({
 });
 
 export default {
-  saveContact: async (location, data) => {
-    const documentRef = admin.firestore().collection(location).doc();
-    await documentRef.set(data);
+  /**
+   * @description method responsible for adding data to firebase
+   * @method saveContact
+   * @async
+   *
+   * @param {String} location
+   * @param {Object} data
+   */
+  save: async (location, data) => {
+    await admin.database().ref(`/${location}`).push(data);
   },
 };

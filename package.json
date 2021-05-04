@@ -14,10 +14,11 @@
     "db:seed": "sequelize db:seed:all",
     "dev": "nodemon -r esm src/server.js",
     "heroku-postbuild": "npm run db:migrate",
+    "pretest": "NODE_ENV=test npm run db:migrate:undo && NODE_ENV=test npm run db:migrate",
+    "posttest": "NODE_ENV=test npm run db:migrate:undo",
     "start": "node -r esm src/server.js",
     "sync:env": "sync-dotenv",
-    "test": "NODE_ENV=test mocha",
-    "test:coverage": "nyc npm test"
+    "test": "NODE_ENV=test nyc mocha"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,7 @@
     "helmet": "^4.5.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "nanoid": "^3.1.22",
     "pg": "^8.6.0",
     "sequelize": "^6.6.2",
     "swagger-ui-express": "^4.1.6",

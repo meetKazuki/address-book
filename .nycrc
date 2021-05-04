@@ -1,12 +1,8 @@
 {
   "exclude": [
-    ".github/**/*",
-    "coverage/**/*",
-    "docs/**/*",
+    "src/config/sequelize.js",
+    "src/models/index.js",
+    "src/validators/**/*",
     "test/**/*"
-  ],
-  "instrument": true,
-  "reporter": ["html", "lcov", "text"],
-  "require": ["esm"],
-  "sourceMap": false
+  ]
 }

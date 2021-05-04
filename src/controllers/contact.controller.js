@@ -1,11 +1,13 @@
+import { nanoid } from 'nanoid';
 import firebaseService from '../services/firebase';
 
-const { saveContact } = firebaseService;
+const { save } = firebaseService;
 
 export default {
   /**
    * @description controller for creating a new contact and saving it to firebase
    * @method createContact
+   * @async
    *
    * @param {Object} request
    * @param {Object} response
@@ -16,7 +18,8 @@ export default {
     const { id } = request.user;
     const { first_name, last_name, phone, address } = request.body;
 
-    await saveContact('contacts', {
+    await save('contacts', {
+      id: nanoid(),
       user_id: id,
       first_name,
       last_name,

@@ -92,7 +92,7 @@ The API response, to the best of my ability, is structure after JSEnd specificat
 ## Project Payload
 
 - [Project Specifications](https://docs.google.com/document/d/1BnMjK5p4VK7lZcukUyHo0nICqb94bJKhHkwiSEoylOE/edit#heading=h.tdkswnxuwklt)
-- [Project Entities Model](https://dbdiagram.io/d/6075157eb6aeb3052d8fcd46)
+- [Project Entities Model](https://dbdiagram.io/d/60853ad5b29a09603d12040f)
 - [API on Staging Environment](https://address-staging.herokuapp.com/api/v1)
 - [API Documentation](https://address-staging.herokuapp.com/api/v1/docs)
 - [Postman Collection](https://documenter.getpostman.com/view/7505181/TzRNEV3x)
@@ -103,8 +103,13 @@ The API response, to the best of my ability, is structure after JSEnd specificat
 
 This project uses [Express.js](https://expressjs.com/) v4.17. It has the following dependencies:
 
-- [Node.js >= 12.18.3](https://nodejs.org/en/download)
+- [Node.js `>=` 12.18.3](https://nodejs.org/en/download)
 - [PostgreSQL Database](https://www.postgresql.org/download/)
+
+### Third party Services
+
+- [Firebase Admin](https://firebase.google.com/) for storing contacts.
+- [Heroku](https://www.heroku.com/) for hosting the API.
 
 ### Getting the Source
 
@@ -154,12 +159,6 @@ To run tests, run
 
 ```sh
 npm test
-```
-
-To run tests with coverage reporting, run
-
-```sh
-npm run test:coverage
 ```
 
 ## How to Get Help

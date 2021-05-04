@@ -14,6 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: PostgreSQL
+        uses: harmon758/postgresql-action@v1
+        with:
+          postgresql version: '11'
+          postgresql db: 'address_book'
+          postgresql user: postgres
+          postgresql password: password
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -26,5 +34,6 @@ jobs:
           PORT: 6379
           JWT_KEY: reallyreallyscallopreally
           SALT: 12
+          TEST_DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/address_book
           DATABASE_DIALECT: postgres
           DATABASE_DEBUG: false
