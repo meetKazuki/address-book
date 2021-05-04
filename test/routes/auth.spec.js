@@ -16,8 +16,6 @@ describe('Authentication Routes', () => {
           password: '123456789',
         });
 
-      console.log('response ->', response.body);
-
       response.status.should.equal(201);
       response.body.status.should.equal('success');
       response.body.should.have.property('data');
