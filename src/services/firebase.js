@@ -10,13 +10,32 @@ admin.initializeApp({
 export default {
   /**
    * @description method responsible for adding data to firebase
-   * @method saveContact
+   * @method save
    * @async
    *
    * @param {String} location
    * @param {Object} data
+   *
+   * @returns {Promise}
    */
-  save: async (location, data) => {
-    await admin.database().ref(`/${location}`).push(data);
+  save: async (userId, location, data) => {
+    await admin.database().ref(`${userId}/${location}`).push(data);
+  },
+
+  /**
+   * @description method responsible for fetching all the collections belonging to
+   * a userId
+   * @method fetch
+   * @async
+   *
+   * @param {String} userId
+   * @param {String} location
+   *
+   * @returns {Object}
+   */
+  fetch: async (userId, location) => {
+    const dataRef = admin.database().ref(`${userId}/${location}`).get();
+    const data = (await dataRef).val();
+    return Object.values(data);
   },
 };

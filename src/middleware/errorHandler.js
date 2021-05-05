@@ -9,7 +9,7 @@ export default (error, request, response, next) => {
 
   if (response.headersSent) return next(error);
   if (!isProduction) {
-    // logger.info(error.stack);
+    logger.error(error.stack);
     errorMessages = error;
   }
 

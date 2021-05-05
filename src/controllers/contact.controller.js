@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import firebaseService from '../services/firebase';
 
-const { save } = firebaseService;
+const { save, fetch } = firebaseService;
 
 export default {
   /**
@@ -18,9 +18,8 @@ export default {
     const { id } = request.user;
     const { first_name, last_name, phone, address } = request.body;
 
-    await save('contacts', {
+    await save(id, 'contacts', {
       id: nanoid(),
-      user_id: id,
       first_name,
       last_name,
       phone,
@@ -30,6 +29,27 @@ export default {
     return response.status(201).json({
       status: 'success',
       message: 'contact successfully saved',
+    });
+  },
+
+  /**
+   * @description controller for retrieving all the contacts created by a user
+   * @method fetchContacts
+   * @async
+   *
+   * @param {Object} request
+   * @param {Object} response
+   *
+   * @returns {Object}
+   */
+  fetchContacts: async (request, response) => {
+    const { id } = request.user;
+    const data = await fetch(id, 'contacts');
+
+    return response.status(200).json({
+      status: 'success',
+      message: 'contacts successfully retrieved',
+      data,
     });
   },
 };
