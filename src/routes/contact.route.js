@@ -9,13 +9,19 @@ const router = Router();
 
 const { verifyToken } = authMiddleware;
 const { createContactSchema } = validationSchema;
-const { createContact } = contactController;
+const { createContact, fetchContacts } = contactController;
 
 router.post(
   '/',
   verifyToken,
   validator(createContactSchema),
   asyncWrapper(createContact),
+);
+
+router.get(
+  '/',
+  verifyToken,
+  asyncWrapper(fetchContacts),
 );
 
 export default router;
