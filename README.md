@@ -109,6 +109,7 @@ This project uses [Express.js](https://expressjs.com/) v4.17. It has the followi
 ### Third party Services
 
 - [Firebase Admin](https://firebase.google.com/) for storing contacts.
+- Github Actions for Continuous Integration and Deployment.
 - [Heroku](https://www.heroku.com/) for hosting the API.
 
 ### Getting the Source
